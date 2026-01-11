@@ -1,6 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import HomeJobs from "../components/HomeJobs";
+import { setSearch } from "../redux/slices/jobsSlice";
 
 const Home = () => {
+  const search = useSelector((state) => state.jobsSlice.filters.search);
+  const dispatch = useDispatch();
   const CATEGORIES = [
     "Software Development",
     "Customer Service",
@@ -38,13 +42,19 @@ const Home = () => {
           {/* Search */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-xl mx-auto mb-8">
             <input
-              type="search"
-              className="w-full border p-3 rounded-xl bg-white text-cyan-800 font-medium focus:outline-none"
-              placeholder="Search job title or keyword"
+              type="text"
+              value={search}
+              onChange={(e) => dispatch(setSearch(e.target.value))}
+              placeholder="Search jobs or companies..."
+              className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-600"
             />
-            <button className="px-6 py-3 bg-white text-cyan-700 font-bold rounded-xl hover:bg-cyan-100 transition">
+            {/* <button
+              value={search}
+              onChange={(e) => dispatch(setSearch(e.target.value))}
+              className="px-6 py-3 bg-white text-cyan-700 font-bold rounded-xl hover:bg-cyan-100 transition"
+            >
               Search
-            </button>
+            </button> */}
           </div>
 
           {/* Categories */}

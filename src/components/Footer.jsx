@@ -30,11 +30,16 @@ const Footer = () => {
               <li>Email: contact@jobfinder.com</li>
               <li>Location: Worldwide</li>
             </ul>
-            <input
-              type="email"
-              className="mt-2 p-2 rounded-md w-75 bg-white text-black"
-              placeholder="Your Email"
-            />
+            <div className="w-100 gap-2 flex ">
+              <input
+                type="email"
+                className="mt-2 p-2 rounded-md w-1/2 bg-white text-black"
+                placeholder="Your Email"
+              />
+              <button className="mt-2 px-4 py-2 w-1/4 bg-cyan-600 rounded-md hover:bg-cyan-500 transition">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
 
